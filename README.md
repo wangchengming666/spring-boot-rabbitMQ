@@ -1,0 +1,2 @@
+# spring_boot_rabbitMQ
+springboot集成rabbitMQ实现消息推送
