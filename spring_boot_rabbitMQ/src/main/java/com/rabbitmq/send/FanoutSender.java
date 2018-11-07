@@ -4,6 +4,7 @@ import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.alibaba.fastjson.JSONObject;
 import com.rabbitmq.config.RabbitMQFanoutConfig;
 
 import lombok.extern.slf4j.Slf4j;
@@ -21,7 +22,7 @@ public class FanoutSender {
 	@Autowired
 	private AmqpTemplate amqpTemplate;
 
-	public void sendFanout(Object obj) {
+	public void sendFanout(JSONObject obj) {
 
 		log.info("sendFanout已发送消息");
 		// 这里的第2个参数为空。

@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.alibaba.fastjson.JSONObject;
 import com.rabbitmq.commons.R;
 import com.rabbitmq.send.DirectSender;
 import com.rabbitmq.send.FanoutSender;
@@ -40,7 +41,7 @@ public class MessageController {
 	 * @return
 	 */
 	@GetMapping("/sendTopic")
-	public R sendTopic(@RequestParam("obj") Object obj) {
+	public R sendTopic(@RequestParam("obj") JSONObject obj) {
 		topicSender.sendTopic(obj);
 		return R.ok();
 	}
@@ -51,7 +52,7 @@ public class MessageController {
 	 * @return
 	 */
 	@GetMapping("/sendDirect")
-	public R sendDirect(@RequestParam("obj") Object obj) {
+	public R sendDirect(@RequestParam("obj") JSONObject obj) {
 		for (int i = 0; i < 10; i++) {
 			directSender.sendDirect(obj);
 		}
@@ -64,7 +65,7 @@ public class MessageController {
 	 * @return
 	 */
 	@GetMapping("/sendFanout")
-	public R sendFanout(@RequestParam("obj") Object obj) {
+	public R sendFanout(@RequestParam("obj") JSONObject obj) {
 		for (int i = 0; i < 10; i++) {
 			fanoutSender.sendFanout(obj);
 		}
