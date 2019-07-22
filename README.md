@@ -59,7 +59,29 @@
   
 ### 消息持久化
 - RabbitMQ支持消息的持久化，即将消息数据持久化到磁盘上，如果消息服务器中途断开，下次开启会将持久化的消息重新发送。
-- RabbitMQ的持久化有交换机、队列、消息的持久化。用于防止服务器宕机重启之后数据的丢失，其中交换机和队列的持久化都是设置durable参数为true，消息的持久化是设置Properties为MessageProperties.PERSITANT_TEXT_PLAIN,消息的持久化基于队列的持久化。
+- RabbitMQ的持久化有交换机、队列、消息的持久化。
+  - 声明交换机Exchange的时候设置 durable=true
+  
+  ```
+    public TopicExchange exchange() {
+        return new TopicExchange(EXCHANGE_NAME,true,false);
+    }
+  ```
+   - 声明队列Queue的时候设置 durable=true
+  
+  ```
+    @Bean
+    public Queue queue() {
+        //durable：是否将队列持久化 true表示需要持久化 false表示不需要持久化
+        return new Queue(QUEUE_NAME, false);
+    }
+  ```
+     - 发送消息的时候设置消息的 deliveryMode = 2
+  
+  ```
+    new MessageProperties() --> DEFAULT_DELIVERY_MODE = MessageDeliveryMode.PERSISTENT --> deliveryMode = 2;
+  ```
+    
 - 出于数据安全考虑，一般消息都会进行持久化。
 
 ### 实例代码可以直接拉下来使用。
