@@ -10,17 +10,16 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * fanout模式消费者
- * 
- * @author cm_wang
  *
+ * @author cm_wang
  */
 @Component
 @Slf4j
 public class FanoutReceiver {
 
-	// queues是指要监听的队列的名字
-	@RabbitListener(queues = RabbitMQFanoutConfig.FANOUT_QUEUE)
-	public void receiveFanout(JSONObject obj) {
-		log.info("receiveFanout收到消息" + obj.toString());
-	}
+    // queues是指要监听的队列的名字
+    @RabbitListener(queues = RabbitMQFanoutConfig.FANOUT_QUEUE)
+    public void receiveFanout(JSONObject obj) {
+        log.info("receiveFanout收到消息" + obj.toString());
+    }
 }

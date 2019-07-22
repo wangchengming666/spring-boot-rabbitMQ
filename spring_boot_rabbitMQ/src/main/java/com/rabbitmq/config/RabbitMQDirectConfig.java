@@ -6,16 +6,17 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * Direct模式
- * 
- * @author cm_wang
  *
+ * @author cm_wang
  */
 @Configuration
 public class RabbitMQDirectConfig {
 
-	public static final String DIRECT_QUEUE = "direct.queue";
+    public static final String DIRECT_QUEUE = "direct.queue";
+
     /**
      * Direct模式
+     *
      * @return
      */
     @Bean

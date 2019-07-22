@@ -9,29 +9,28 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * Topic模式
- * 
- * @author cm_wang
  *
+ * @author cm_wang
  */
 @Configuration
 public class RabbitMQTopicConfig {
 
-	public static final String TOPIC_QUEUE = "topic.queue";
-	
-	public static final String TOPIC_EXCHANGE = "topic.exchange";
+    public static final String TOPIC_QUEUE = "topic.queue";
 
-	@Bean
-	public Queue topicQueue() {
-		return new Queue(TOPIC_QUEUE);
-	}
+    public static final String TOPIC_EXCHANGE = "topic.exchange";
 
-	@Bean
-	public TopicExchange topicExchange() {
-		return new TopicExchange(TOPIC_EXCHANGE);
-	}
+    @Bean
+    public Queue topicQueue() {
+        return new Queue(TOPIC_QUEUE);
+    }
 
-	@Bean
-	public Binding topicBinding() {
-		return BindingBuilder.bind(topicQueue()).to(topicExchange()).with("rabbitmq.message");
-	}
+    @Bean
+    public TopicExchange topicExchange() {
+        return new TopicExchange(TOPIC_EXCHANGE);
+    }
+
+    @Bean
+    public Binding topicBinding() {
+        return BindingBuilder.bind(topicQueue()).to(topicExchange()).with("rabbitmq.message");
+    }
 }
