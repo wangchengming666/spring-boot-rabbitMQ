@@ -21,12 +21,12 @@ public class RabbitMQTopicConfig {
 
     @Bean
     public Queue topicQueue() {
-        return new Queue(TOPIC_QUEUE);
+        return new Queue(TOPIC_QUEUE, false);
     }
 
     @Bean
     public TopicExchange topicExchange() {
-        return new TopicExchange(TOPIC_EXCHANGE);
+        return new TopicExchange(TOPIC_EXCHANGE, true, false);
     }
 
     @Bean
