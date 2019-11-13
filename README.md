@@ -1,4 +1,4 @@
-### spring_boot_rabbitMQ
+### spring_boot_rabbitMQ 
 - Spring Boot集成rabbitMQ实现消息推送，rabbitMQ为异步消息处理提出了一个很好的解决方案，它是一个非常好用的消息中间件。`主要解决当生产者大量产生数据时，消费者无法快速消费的问题`。这个时候需要一个中间层，保存这个数据，rabbitMQ是一个很好的解决方案。
 - Spring Boot为rabbitMQ提供了支持, Spring Boot为rabbitMQ准备了spring-boot-starter-amqp，并且为RabbitTemplate和rabbitMQ提供了自动配置选项。
 - AMQP协议，即Advanced Message Queuing Protocol，高级消息队列协议，是应用层协议的一个开放标准，为面向消息的中间件设计。消息中间件主要用于组件之间的解耦，消息的发送者无需知道消息使用者的存在，反之亦然。AMQP的主要特征是面向消息、队列、路由（包括点对点和发布/订阅）、可靠性、安全。
